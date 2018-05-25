@@ -122,6 +122,7 @@ public class TimeClientHandler implements Runnable{
 		writeBuffer.put(req);
 		writeBuffer.flip();
 		sc.write(writeBuffer);
+		//判断缓冲区中的消息是否全部发送完成
 		if(!writeBuffer.hasRemaining()){
 			System.out.println("send req to server success");
 		}
