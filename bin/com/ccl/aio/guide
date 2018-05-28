@@ -1,0 +1,7 @@
+AIO(NIO2.0) 引入了新的异步通道的概念，提供异步文件通道和异步套接字的实现。
+异步通道提供以下两种方式获取操作结果：
+(1).通过java.util.concurrent.Future类来表示操作的结果
+(2).在执行异步操作的时候传入一个java.nio.channels
+CompletionHandler接口的实现类作为操作完成的回调。
+AIO是真正的异步非阻塞IO,不需要通过Selector对注册的通道进行轮询操作即可实现异步读写。
+
