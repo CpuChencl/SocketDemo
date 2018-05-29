@@ -10,7 +10,8 @@ public class TimeClientHandler extends SimpleChannelInboundHandler<Object> {
 	private final ByteBuf firstMsg;
 	
 	public TimeClientHandler(){
-		byte[] req = "QUERY TIME ORDER".getBytes();
+		String order ="QUERY TIME ORDER"  + System.getProperty("line.separator");
+		byte[] req = order.getBytes();
 		firstMsg = Unpooled.buffer(req.length);
 		firstMsg.writeBytes(req);
 	}
@@ -28,10 +29,7 @@ public class TimeClientHandler extends SimpleChannelInboundHandler<Object> {
 	
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-		ByteBuf buf = (ByteBuf)msg;
-		byte[] bytes = new byte[buf.readableBytes()];
-		buf.readBytes(bytes);
-		String body = new String(bytes,"UTF-8");
+		String body = (String)msg;
 		System.out.println("now is: "+ body);
 	}
 
