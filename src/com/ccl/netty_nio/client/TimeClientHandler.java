@@ -25,15 +25,6 @@ public class TimeClientHandler extends SimpleChannelInboundHandler<Object> {
 		System.out.println("unexpected exception from downstream : "+cause.getMessage());
 		ctx.close();
 	}
-
-	@Override
-	protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-		ByteBuf buf = (ByteBuf)msg;
-		byte[] bytes = new byte[buf.readableBytes()];
-		buf.readBytes(bytes);
-		String body = new String(bytes,"UTF-8");
-		System.out.println("now is: "+ body);
-	}
 	
 	@Override
 	public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
@@ -42,5 +33,10 @@ public class TimeClientHandler extends SimpleChannelInboundHandler<Object> {
 		buf.readBytes(bytes);
 		String body = new String(bytes,"UTF-8");
 		System.out.println("now is: "+ body);
+	}
+
+	@Override
+	protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
+		
 	}
 }
