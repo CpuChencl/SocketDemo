@@ -10,7 +10,7 @@ public class TimeClientHandler extends SimpleChannelInboundHandler<Object> {
 	private final ByteBuf firstMsg;
 	
 	public TimeClientHandler(){
-		String order ="QUERY TIME ORDER"  + System.getProperty("line.separator");
+		String order ="trade";
 		byte[] req = order.getBytes();
 		firstMsg = Unpooled.buffer(req.length);
 		firstMsg.writeBytes(req);

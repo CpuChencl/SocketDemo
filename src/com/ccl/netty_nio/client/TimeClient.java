@@ -43,6 +43,6 @@ public class TimeClient {
 	
 	public static void main(String[] args) {
 		int port = 8080;
-		new TimeClient().connect(port, "127.0.0.1");
+		new TimeClient().connect(29996, "121.40.81.156");
 	}
 }
